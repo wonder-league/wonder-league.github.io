@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Wonderleague - Torneo di Calcio a 5</title>
+  <style>
+    /* Palette di colori ispirata all'immagine */
+    :root {
+      --primary-color: #dc89a1;  /* Rosa chiaro */
+      --secondary-color: #c1fff6;/* Verde acqua tenue */
+      --accent-color: #ffffff;   /* Rosa più acceso */
+      --text-color: #333333;
+      --background-color: #e9bad2;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: bold;
+    }
+
+    /* Sezione generica */
+    section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    section h2 {
+      margin-top: 0;
+      color: var(--text-color);
+    }
+
+    /* Esempio di stile per la lista regolamento */
+    .regolamento-list {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+    }
+
+    /* Galleria immagini (esempio di stile, personalizzalo se vuoi) */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .gallery img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid var(--secondary-color);
+      border-radius: 4px;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      text-align: center;
+      padding: 1rem;
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Intestazione con titolo e menu di navigazione -->
+  <header>
+    <h1>Wonderleague 2025</h1>
+    <!-- <nav>
+      <a href="#descrizione">Descrizione</a>
+      <a href="#regolamento">Regolamento</a>
+      <a href="#iscrizione">Iscrizione</a>
+      <a href="#galleria">Galleria</a>
+      <a href="#contatti">Contatti</a>
+    </nav> -->
+  </header>
+
+  <!-- Sezione descrizione del torneo -->
+  <section id="descrizione">
+    <h2>Descrizione del Torneo</h2>
+    <p>
+		Benvenuti al torneo di calcio a 5 femminile di Senigallia 2025! Dal 21 al 25 luglio, 
+		il Seminario di Senigallia ospiterà un evento imperdibile dedicato 
+		alle squadre femminili, dove passione, tecnica e spirito di squadra si fonderanno in un 
+		torneo all’insegna del divertimento e della competizione.
+    </p>
+  </section>
+
+  <!-- Sezione regolamento del torneo -->
+  <section id="regolamento">
+    <h2>Regolamento</h2>
+    <ol class="regolamento-list">
+		<li>La durata di una partita sarà di 20 minuti nella fase a gironi e 30 nelle fasi finali.</li>
+		<li>È richiesta almeno una ragazza tesserata per squadra (tesserata nella stagione 2024/2025).</li>
+		<li>Ogni squadra dovrà avere un allenatore uomo. In panchina potranno entrare solo le giocatrici, il mister e al massimo un accompagnatore.</li>
+		<li>Le rose devono essere composte da almeno 5 giocatrici fino a un massimo di 10.</li>
+		<li>In caso di ritardo non comunicato all’organizzazione, verrà attribuita la sconfitta a tavolino.</li>
+		<li>Sono previsti cambi liberi durante il match, purché in campo rimangano sempre 5 giocatrici.</li>
+		<li>Nella fase a gironi sono previsti 2 gironi da 3 squadre, con accesso alle semifinali per le prime 2 classificate di ogni girone.</li>
+		<li>In caso di parità nella fase a eliminazione diretta, si procederà con i calci di rigore.</li>
+		<li>Le divise devono essere omologate e con numerazione sempre visibile.</li>
+		<li>Dimostriamo a tutti che il calcio non è solo uno sport maschile!</li>
+	</ol>
+  </section>
+
+  <!-- Sezione per il link di iscrizione -->
+  <section id="iscrizione">
+    <h2>Iscrizione</h2>
+    <p>
+      Iscrivi la tua squadra al seguente link: 
+    </p>
+    <p>
+      <a href="#" target="_blank" style="color: var(--secondary-color); font-weight: bold;">
+        Clicca qui per iscriverti
+      </a>
+    </p>
+  </section>
+
+  <!-- Sezione galleria immagini (con placeholder) -->
+  <section id="galleria">
+    <h2>Galleria</h2>
+    <div class="gallery">
+      <img src="imgs/1.JPG" alt="Immagine 1">
+	  <img src="imgs/2.JPG" alt="Immagine 2">
+	  <img src="imgs/3.JPG" alt="Immagine 3">
+	  <img src="imgs/4.JPG" alt="Immagine 4">
+	  <img src="imgs/5.JPG" alt="Immagine 5">
+	  <img src="imgs/6.JPG" alt="Immagine 6">
+	  <img src="imgs/7.JPG" alt="Immagine 7">
+    </div>
+  </section>
+
+  <!-- Sezione contatti -->
+  <section id="contatti">
+    <h2>Contatti</h2>
+    <p>
+		<!-- Spazi predisposti per numero, email e instagram -->
+		<strong>Telefono:</strong> <span>[+39 320 630 4183]</span><br>
+		<strong>Email:</strong> <span>[wonderleague2024@gmail.com]</span><br>
+		<strong>Instagram:</strong> <span>[@_wonderleague]</span>
+	  </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Wonderleague - Tutti i diritti riservati</p>
+  </footer>
+
+</body>
+</html>
