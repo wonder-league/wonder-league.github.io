@@ -2,6 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wonderleague - Torneo di Calcio a 5</title>
   <style>
     /* Palette di colori ispirata all'immagine */
@@ -13,41 +14,54 @@
       --background-color: #e9bad2;
     }
 
+    /* Impostazioni mobile-first */
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: var(--background-color);
       color: var(--text-color);
       line-height: 1.6;
+      padding: 0 1rem;
     }
 
     header {
       background-color: var(--primary-color);
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 1.5rem 0;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2rem;
+      font-size: 1.8rem;
+      color: var(--text-color);
     }
 
     nav {
       margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
     }
 
     nav a {
-      margin: 0 1rem;
       text-decoration: none;
       color: var(--text-color);
       font-weight: bold;
     }
 
-    /* Sezione generica */
+    /* Ogni sezione ha il background di --text-color e testo in bianco */
     section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
+      background-color: var(--primary-color);
+      color: #ffffff;
+      margin: 1.5rem auto;
+      padding: 1.5rem 1rem;
+      border-radius: 4px;
+      max-width: 100%;
     }
 
     section h2 {
@@ -55,34 +69,102 @@
       color: var(--text-color);
     }
 
-    /* Esempio di stile per la lista regolamento */
+    ol {
+      color: var(--text-color);
+    }
+
+    p {
+      color: var(--text-color);
+    }
+
+    /* Lista regolamento */
     .regolamento-list {
       list-style-type: decimal;
       padding-left: 1.5rem;
     }
 
-    /* Galleria immagini (esempio di stile, personalizzalo se vuoi) */
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+    /* Galleria scorrevole (mobile-first) */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      margin: 1rem auto;
+      border-radius: 4px;
     }
 
-    .gallery img {
-      max-width: 100%;
+    .slide {
+      display: none;
+      text-align: center;
+    }
+
+    .slide img {
+      width: 100%;
       height: auto;
+      display: block;
       border: 2px solid var(--secondary-color);
       border-radius: 4px;
+    }
+
+    .active {
+      display: block;
+    }
+
+    /* Pulsanti di navigazione */
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.7);
+      color: var(--text-color);
+      border: none;
+      padding: 0.5rem 0.8rem;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(255, 255, 255, 0.9);
     }
 
     footer {
       background-color: var(--primary-color);
       text-align: center;
       padding: 1rem;
+      margin-top: 1.5rem;
+      border-radius: 4px;
     }
 
     footer p {
       margin: 0;
+      color: var(--text-color);
+    }
+
+    /* Media queries per schermi più larghi */
+    @media (min-width: 768px) {
+      body {
+        padding: 0 2rem;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      section {
+        max-width: 800px;
+      }
+
+      nav {
+        gap: 2rem;
+      }
     }
   </style>
 </head>
@@ -104,7 +186,7 @@
   <section id="descrizione">
     <h2>Descrizione del Torneo</h2>
     <p>
-		Benvenuti al torneo di calcio a 5 femminile di Senigallia 2025! Dal 21 al 25 luglio, 
+        Benvenuti al torneo di calcio a 5 femminile di Senigallia 2025! Dal 21 al 25 luglio, 
 		il Seminario di Senigallia ospiterà un evento imperdibile dedicato 
 		alle squadre femminili, dove passione, tecnica e spirito di squadra si fonderanno in un 
 		torneo all’insegna del divertimento e della competizione.
@@ -115,7 +197,7 @@
   <section id="regolamento">
     <h2>Regolamento</h2>
     <ol class="regolamento-list">
-		<li>La durata di una partita sarà di 20 minuti nella fase a gironi e 30 nelle fasi finali.</li>
+        <li>La durata di una partita sarà di 20 minuti nella fase a gironi e 30 nelle fasi finali.</li>
 		<li>È richiesta almeno una ragazza tesserata per squadra (tesserata nella stagione 2024/2025).</li>
 		<li>Ogni squadra dovrà avere un allenatore uomo. In panchina potranno entrare solo le giocatrici, il mister e al massimo un accompagnatore.</li>
 		<li>Le rose devono essere composte da almeno 5 giocatrici fino a un massimo di 10.</li>
@@ -125,33 +207,53 @@
 		<li>In caso di parità nella fase a eliminazione diretta, si procederà con i calci di rigore.</li>
 		<li>Le divise devono essere omologate e con numerazione sempre visibile.</li>
 		<li>Dimostriamo a tutti che il calcio non è solo uno sport maschile!</li>
-	</ol>
+    </ol>
   </section>
 
   <!-- Sezione per il link di iscrizione -->
   <section id="iscrizione">
     <h2>Iscrizione</h2>
     <p>
-      Iscrivi la tua squadra al seguente link: 
+      <!-- Istruzioni per l'iscrizione -->
+      Clicca sul link qui sotto per completare la procedura di iscrizione:
     </p>
     <p>
-      <a href="#" target="_blank" style="color: var(--secondary-color); font-weight: bold;">
-        Clicca qui per iscriverti
+      <a href="https://tuo-link-iscrizione.it" target="_blank" style="color: var(--accent-color); font-weight: bold;">
+        Iscriviti al torneo
       </a>
     </p>
   </section>
 
-  <!-- Sezione galleria immagini (con placeholder) -->
+  <!-- Sezione galleria immagini (carousel scorrevole) -->
   <section id="galleria">
     <h2>Galleria</h2>
-    <div class="gallery">
-      <img src="imgs/1.JPG" alt="Immagine 1">
-	  <img src="imgs/2.JPG" alt="Immagine 2">
-	  <img src="imgs/3.JPG" alt="Immagine 3">
-	  <img src="imgs/4.JPG" alt="Immagine 4">
-	  <img src="imgs/5.JPG" alt="Immagine 5">
-	  <img src="imgs/6.JPG" alt="Immagine 6">
-	  <img src="imgs/7.JPG" alt="Immagine 7">
+    <div class="carousel">
+      <div class="slide active">
+        <img src="imgs/1.JPG" alt="Foto 1">
+      </div>
+        <div class="slide">
+            <img src="imgs/2.JPG" alt="Foto 2">
+        </div>
+        <div class="slide">
+            <img src="imgs/3.JPG" alt="Foto 3">
+        </div>
+        <div class="slide">
+            <img src="imgs/4.JPG" alt="Foto 4">
+        </div>
+        <div class="slide">
+            <img src="imgs/5.JPG" alt="Foto 5">
+        </div>
+        <div class="slide">
+            <img src="imgs/6.JPG" alt="Foto 6">
+        </div>
+        <div class="slide">
+            <img src="imgs/7.JPG" alt="Foto 7">
+        </div>
+        
+      
+      <!-- Pulsanti di navigazione -->
+      <button class="prev">&laquo; Prev</button>
+      <button class="next">Next &raquo;</button>
     </div>
   </section>
 
@@ -159,17 +261,40 @@
   <section id="contatti">
     <h2>Contatti</h2>
     <p>
-		<!-- Spazi predisposti per numero, email e instagram -->
-		<strong>Telefono:</strong> <span>[+39 320 630 4183]</span><br>
-		<strong>Email:</strong> <span>[wonderleague2024@gmail.com]</span><br>
-		<strong>Instagram:</strong> <span>[@_wonderleague]</span>
-	  </p>
+      <!-- Spazi predisposti per numero, email e instagram -->
+      <strong>Telefono:</strong> <span>[+39 XXX XXXXXXX]</span><br>
+      <strong>Email:</strong> <span>[info@wonderleague.it]</span><br>
+      <strong>Instagram:</strong> <span>[@wonderleague]</span>
+    </p>
   </section>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Wonderleague - Tutti i diritti riservati</p>
   </footer>
+
+  <!-- Script per far funzionare la galleria scorrevole -->
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+
+    prevButton.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    });
+
+    nextButton.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    });
+  </script>
 
 </body>
 </html>
