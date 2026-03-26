@@ -31,15 +31,18 @@ defineProps({
 </script>
 
 <style scoped>
+/* Larghezza marker + posizione linea devono coincidere */
 .timeline {
+  --marker-w: 90px;
+  --line-gap: 20px; /* spazio tra linea e card */
   position: relative;
-  padding-left: var(--space-xl);
 }
 
+/* Linea verticale: parte esatta dal bordo destro del marker */
 .timeline::before {
   content: '';
   position: absolute;
-  left: 80px;
+  left: var(--marker-w);
   top: 0;
   bottom: 0;
   width: 2px;
@@ -48,27 +51,31 @@ defineProps({
 
 .timeline__item {
   display: flex;
-  gap: var(--space-md);
+  align-items: flex-start;
+  gap: 0;
   margin-bottom: var(--space-lg);
   position: relative;
 }
 
+/* Pallino: centrato sulla linea */
 .timeline__item::before {
   content: '';
   position: absolute;
-  left: calc(80px - 5px - var(--space-xl));
-  top: 6px;
+  left: calc(var(--marker-w) - 6px);
+  top: 8px;
   width: 12px;
   height: 12px;
   border-radius: 50%;
   background-color: var(--color-primary);
   border: 2px solid var(--color-bg-surface);
+  z-index: 1;
 }
 
 .timeline__marker {
   flex-shrink: 0;
+  width: var(--marker-w);
+  padding-right: var(--space-sm);
   text-align: right;
-  width: 60px;
 }
 
 .timeline__date {
@@ -76,6 +83,7 @@ defineProps({
   font-weight: bold;
   font-size: 0.95rem;
   color: var(--color-primary);
+  line-height: 1.3;
 }
 
 .timeline__label {
@@ -86,6 +94,7 @@ defineProps({
 
 .timeline__content {
   flex: 1;
+  margin-left: var(--line-gap);
   padding: var(--space-sm) var(--space-md);
   background-color: var(--color-bg-surface);
   border-radius: var(--radius-md);
@@ -117,6 +126,7 @@ defineProps({
 
 @media (max-width: 500px) {
   .timeline {
+    --marker-w: 0px;
     padding-left: var(--space-md);
   }
   .timeline::before {
@@ -130,8 +140,9 @@ defineProps({
     left: -5px;
   }
   .timeline__marker {
-    text-align: left;
     width: auto;
+    text-align: left;
+    padding-right: 0;
   }
 }
 </style>

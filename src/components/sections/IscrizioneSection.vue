@@ -6,15 +6,17 @@
         Iscriva la tua squadra compilando il modulo online. Le iscrizioni sono aperte!
       </p>
 
-      <ul class="iscrizione__requirements">
-        <li>Da 5 a 10 giocatrici per rosa</li>
-        <li>Almeno una giocatrice tesserata FIGC o CSI</li>
-        <li>Allenatore/accompagnatore obbligatorio</li>
-      </ul>
+      <div class="iscrizione__body">
+        <ul class="iscrizione__requirements">
+          <li>Da 5 a 10 giocatrici per rosa</li>
+          <li>Almeno una giocatrice tesserata FIGC o CSI</li>
+          <li>Allenatore/accompagnatore obbligatorio</li>
+        </ul>
 
-      <BaseButton :href="formUrl" target="_blank" variant="primary" class="mt-md">
-        Compila il modulo di iscrizione
-      </BaseButton>
+        <BaseButton :href="formUrl" target="_blank" variant="primary">
+          Compila il modulo di iscrizione
+        </BaseButton>
+      </div>
     </div>
   </section>
 </template>
@@ -38,14 +40,28 @@ defineProps({
   margin-bottom: var(--space-md);
 }
 
+.iscrizione__body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
 .iscrizione__requirements {
-  display: inline-block;
   text-align: left;
-  margin-bottom: var(--space-md);
+  margin: 0;
   padding-left: var(--space-md);
 }
 
 .iscrizione__requirements li {
   margin-bottom: var(--space-xs);
+}
+
+@media (max-width: 600px) {
+  .iscrizione__body {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 </style>

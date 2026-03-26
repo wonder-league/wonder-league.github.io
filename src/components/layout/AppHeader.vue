@@ -2,7 +2,7 @@
   <header class="header" :class="{ 'header--scrolled': isScrolled }">
     <div class="header__inner">
       <a href="#" class="header__logo">
-        <img src="/logo/WL%20Wonder%20League.png" alt="Wonder League" />
+        <img :src="isScrolled ? '/logo/logo-white.png' : '/logo/logo.png'" alt="Wonder League" />
       </a>
 
       <button
@@ -17,7 +17,13 @@
       </button>
 
       <nav class="header__nav" :class="{ 'is-open': isMenuOpen }">
-        <a v-for="link in navLinks" :key="link.href" :href="link.href" class="header__nav-link" @click="isMenuOpen = false">
+        <a
+          v-for="link in navLinks"
+          :key="link.href"
+          href="javascript:void(0)"
+          class="header__nav-link"
+          @click="scrollTo(link.href)"
+        >
           {{ link.label }}
         </a>
       </nav>
@@ -41,6 +47,16 @@ const navLinks = [
   { href: '#faq', label: 'FAQ' },
   { href: '#contatti', label: 'Contatti' },
 ]
+
+function scrollTo(href) {
+  const id = href.replace('#', '')
+  const el = document.getElementById(id)
+  if (el) {
+    const top = el.getBoundingClientRect().top + window.scrollY - 80
+    window.scrollTo({ top, behavior: 'smooth' })
+  }
+  isMenuOpen.value = false
+}
 
 function onScroll() {
   isScrolled.value = window.scrollY > 20
@@ -87,6 +103,8 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   font-size: 1.1rem;
   flex-shrink: 0;
 }
+
+
 
 .header__logo img {
   height: 40px;

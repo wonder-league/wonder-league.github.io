@@ -1,12 +1,12 @@
 <template>
   <section class="hero">
     <div class="hero__content">
-      <img src="/logo/WL%20Wonder%20League.png" alt="Wonder League" class="hero__logo" />
+      <img src="/logo/logo.png" alt="Wonder League" class="hero__logo" />
       <h1 class="hero__title">Wonder League 2026</h1>
       <p class="hero__subtitle">Torneo di calcio a 5 femminile &middot; Senigallia &middot; 21&ndash;25 Luglio 2026</p>
       <div class="hero__ctas">
-        <BaseButton href="#iscrizione" variant="primary">Iscriviti</BaseButton>
-        <BaseButton href="#descrizione" variant="outline-white">Scopri di pi&ugrave;</BaseButton>
+        <BaseButton variant="primary" @click="scrollTo('iscrizione')">Iscriviti</BaseButton>
+        <BaseButton variant="outline-white" @click="scrollTo('descrizione')">Scopri di pi&ugrave;</BaseButton>
       </div>
     </div>
   </section>
@@ -14,6 +14,14 @@
 
 <script setup>
 import BaseButton from '../ui/BaseButton.vue'
+
+function scrollTo(id) {
+  const el = document.getElementById(id)
+  if (el) {
+    const top = el.getBoundingClientRect().top + window.scrollY - 80
+    window.scrollTo({ top, behavior: 'smooth' })
+  }
+}
 </script>
 
 <style scoped>
@@ -25,8 +33,8 @@ import BaseButton from '../ui/BaseButton.vue'
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-image: url('/logo/WL%20Wonder%20League.jpg');
-  background-size: cover;
+  background-image: url('/logo/logo.jpg');
+  background-size: contain;
   background-position: center;
   color: #fff;
   padding-top: var(--header-height);
