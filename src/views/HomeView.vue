@@ -4,7 +4,7 @@
     <DescrizioneSection />
     <ProgrammaSection :days="programma" />
     <GironiSection :groups="groups" />
-    <RegolamentoSection :rules="rules" />
+    <RegolamentoSection />
     <IscrizioneSection :form-url="FORM_URL" />
     <GalleriaSection />
     <FaqSection :faqs="faqs" />
@@ -24,19 +24,6 @@ import FaqSection from '../components/sections/FaqSection.vue'
 import ContattiSection from '../components/sections/ContattiSection.vue'
 
 const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSepR-LRKB9oElUL1-oZiRKXaqZMEpPTRRearLKY9CtfOttjFw/viewform?usp=sf_link'
-
-const rules = [
-  { id: 1, text: 'Il torneo è riservato a squadre femminili. Ogni squadra deve essere composta da un minimo di 5 e un massimo di 10 giocatrici.' },
-  { id: 2, text: 'Ogni squadra deve avere almeno una giocatrice tesserata FIGC o CSI per la stagione in corso.' },
-  { id: 3, text: 'È obbligatoria la presenza di un allenatore/accompagnatore maggiorenne per tutta la durata del torneo.' },
-  { id: 4, text: 'Le partite si disputano su campo in erba sintetica con porte regolamentari da calcio a 5.' },
-  { id: 5, text: 'La durata di ogni partita è di 2 tempi da 20 minuti ciascuno con 5 minuti di intervallo.' },
-  { id: 6, text: 'Ogni squadra può effettuare sostituzioni illimitate, ma solo durante le interruzioni di gioco.' },
-  { id: 7, text: 'In caso di parità nella fase a gironi si assegnano: 3 punti alla vittoria, 1 punto al pareggio, 0 punti alla sconfitta.' },
-  { id: 8, text: 'In caso di parità di punti nel girone, si tiene conto di: differenza reti, gol fatti, scontro diretto.' },
-  { id: 9, text: 'Nella fase a eliminazione diretta, in caso di parità al termine dei tempi regolamentari, si procederà ai calci di rigore.' },
-  { id: 10, text: 'Comportamenti antisportivi, insulti o violenze comporteranno l\'immediata squalifica della giocatrice e potenzialmente dell\'intera squadra.' },
-]
 
 const faqs = [
   {

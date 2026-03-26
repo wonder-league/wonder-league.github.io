@@ -2,7 +2,7 @@
   <header class="header" :class="{ 'header--scrolled': isScrolled }">
     <div class="header__inner">
       <a href="#" class="header__logo">
-        <img :src="isScrolled ? '/logo/logo-white.png' : '/logo/logo.png'" alt="Wonder League" />
+        <img src="/logo/logo-white.png" alt="Wonder League" />
       </a>
 
       <button
@@ -74,10 +74,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   right: 0;
   z-index: 100;
   height: var(--header-height);
-  transition: background-color 0.2s, box-shadow 0.2s;
-}
-
-.header--scrolled {
   background-color: var(--color-accent);
   box-shadow: var(--shadow-md);
 }

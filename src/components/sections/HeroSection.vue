@@ -2,11 +2,10 @@
   <section class="hero">
     <div class="hero__content">
       <img src="/logo/logo.png" alt="Wonder League" class="hero__logo" />
-      <h1 class="hero__title">Wonder League 2026</h1>
       <p class="hero__subtitle">Torneo di calcio a 5 femminile &middot; Senigallia &middot; 21&ndash;25 Luglio 2026</p>
       <div class="hero__ctas">
         <BaseButton variant="primary" @click="scrollTo('iscrizione')">Iscriviti</BaseButton>
-        <BaseButton variant="outline-white" @click="scrollTo('descrizione')">Scopri di pi&ugrave;</BaseButton>
+        <BaseButton variant="secondary" @click="scrollTo('descrizione')">Scopri di pi&ugrave;</BaseButton>
       </div>
     </div>
   </section>
@@ -33,46 +32,29 @@ function scrollTo(id) {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-image: url('/logo/logo.jpg');
-  background-size: contain;
-  background-position: center;
-  color: #fff;
+  background-color: #e8e8e8;
+  color: #2a2a2a;
   padding-top: var(--header-height);
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-}
 
 .hero__content {
   position: relative;
   z-index: 1;
   padding: var(--space-lg) var(--space-sm);
-  max-width: 700px;
+  max-width: 860px;
 }
 
 .hero__logo {
-  width: 120px;
+  width: clamp(220px, 35vw, 540px);
   height: auto;
   margin-inline: auto;
-  margin-bottom: var(--space-md);
-
-}
-
-.hero__title {
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  margin-bottom: var(--space-sm);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  margin-bottom: var(--space-lg);
 }
 
 .hero__subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
   margin-bottom: var(--space-lg);
-  opacity: 0.9;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .hero__ctas {
@@ -80,5 +62,10 @@ function scrollTo(id) {
   gap: var(--space-sm);
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.hero__ctas :deep(.btn) {
+  padding: 0.85rem 2rem;
+  font-size: 1.1rem;
 }
 </style>
