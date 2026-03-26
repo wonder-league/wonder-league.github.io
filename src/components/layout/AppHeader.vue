@@ -3,7 +3,6 @@
     <div class="header__inner">
       <a href="#" class="header__logo">
         <img src="/logo/WL%20Wonder%20League.png" alt="Wonder League" />
-        <span>Wonder League</span>
       </a>
 
       <button

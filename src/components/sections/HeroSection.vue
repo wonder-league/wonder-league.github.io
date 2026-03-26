@@ -51,7 +51,7 @@ import BaseButton from '../ui/BaseButton.vue'
   height: auto;
   margin-inline: auto;
   margin-bottom: var(--space-md);
-  border-radius: 50%;
+
 }
 
 .hero__title {

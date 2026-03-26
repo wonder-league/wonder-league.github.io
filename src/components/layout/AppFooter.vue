@@ -2,14 +2,6 @@
   <footer class="footer">
     <div class="container footer__inner">
       <p class="footer__copy">&copy; 2026 Wonder League. Tutti i diritti riservati.</p>
-      <div class="footer__links">
-        <a href="https://instagram.com/_wonderleague" target="_blank" rel="noopener" class="footer__link">
-          Instagram
-        </a>
-        <a href="mailto:wonderleague2024@gmail.com" class="footer__link">
-          wonderleague2024@gmail.com
-        </a>
-      </div>
     </div>
   </footer>
 </template>
@@ -18,13 +10,13 @@
 .footer {
   background-color: var(--color-primary);
   color: var(--color-text-on-primary);
-  padding-block: var(--space-md);
+  padding-block: var(--space-xs);
 }
 
 .footer__inner {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: var(--space-sm);
 }
