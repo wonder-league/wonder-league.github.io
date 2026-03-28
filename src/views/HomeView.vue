@@ -3,7 +3,7 @@
     <HeroSection />
     <DescrizioneSection />
     <ProgrammaSection :days="programma" />
-    <GironiSection :groups="groups" />
+    <!-- <GironiSection :groups="groups" /> -->
     <RegolamentoSection />
     <IscrizioneSection :form-url="FORM_URL" />
     <GalleriaSection />

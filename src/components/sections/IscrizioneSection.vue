@@ -1,4 +1,4 @@
-<template>
+j<template>
   <section id="iscrizione" class="section section--secondary">
     <div class="container text-center">
       <h2 class="section__title">Iscrizione</h2>
@@ -61,7 +61,7 @@ defineProps({
 @media (max-width: 600px) {
   .iscrizione__body {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 }
 </style>
