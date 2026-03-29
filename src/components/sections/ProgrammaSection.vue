@@ -1,7 +1,7 @@
 <template>
   <section id="programma" class="section">
     <div class="container">
-      <h2 class="section__title">Programma</h2>
+      <h2 class="section__title">{{ content.title }}</h2>
 
       <div class="timeline">
         <div v-for="day in days" :key="day.date" class="timeline__item">
@@ -22,6 +22,8 @@
 </template>
 
 <script setup>
+import { programma as content } from '../../content.js'
+
 defineProps({
   days: {
     type: Array,

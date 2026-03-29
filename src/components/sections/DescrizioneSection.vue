@@ -1,34 +1,15 @@
 <template>
   <section id="descrizione" class="section section--alt">
     <div class="container">
-      <h2 class="section__title">Il Torneo</h2>
-      <p class="descrizione__text">
-        Wonder League è un torneo di calcio a 5 femminile che si svolge a Senigallia,
-        presso il Seminario, dal 21 al 25 Luglio 2026. L'evento nasce con l'obiettivo di
-        riunire squadre da tutta Italia in uno spirito di divertimento, amicizia e fair play.
-        Cinque giorni di partite, emozioni e tanto calcio giocato da donne appassionate.
-      </p>
+      <h2 class="section__title">{{ content.title }}</h2>
+      <p class="descrizione__text">{{ content.text }}</p>
 
       <div class="grid-3 mt-lg">
-        <BaseCard elevated>
+        <BaseCard v-for="feature in content.features" :key="feature.title" elevated>
           <div class="feature-card">
-            <span class="feature-card__icon">&#9917;</span>
-            <h3>Squadre</h3>
-            <p>Fino a 6 squadre partecipanti suddivise in gironi</p>
-          </div>
-        </BaseCard>
-        <BaseCard elevated>
-          <div class="feature-card">
-            <span class="feature-card__icon">&#128197;</span>
-            <h3>5 Giorni</h3>
-            <p>T.B.D. a Senigallia (AN)</p>
-          </div>
-        </BaseCard>
-        <BaseCard elevated>
-          <div class="feature-card">
-            <span class="feature-card__icon">&#127942;</span>
-            <h3>Fair Play</h3>
-            <p>Spirito sportivo e amicizia al centro di ogni partita</p>
+            <span class="feature-card__icon">{{ feature.icon }}</span>
+            <h3>{{ feature.title }}</h3>
+            <p>{{ feature.text }}</p>
           </div>
         </BaseCard>
       </div>
@@ -38,6 +19,7 @@
 
 <script setup>
 import BaseCard from '../ui/BaseCard.vue'
+import { descrizione as content } from '../../content.js'
 </script>
 
 <style scoped>

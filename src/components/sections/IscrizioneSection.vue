@@ -1,20 +1,16 @@
 j<template>
   <section id="iscrizione" class="section section--secondary">
     <div class="container text-center">
-      <h2 class="section__title">Iscrizione</h2>
-      <p class="iscrizione__text">
-        Iscriva la tua squadra compilando il modulo online. Le iscrizioni sono aperte!
-      </p>
+      <h2 class="section__title">{{ content.title }}</h2>
+      <p class="iscrizione__text">{{ content.text }}</p>
 
       <div class="iscrizione__body">
         <ul class="iscrizione__requirements">
-          <li>Da 5 a 10 giocatrici per rosa</li>
-          <li>Almeno una giocatrice tesserata FIGC o CSI</li>
-          <li>Allenatore/accompagnatore obbligatorio</li>
+          <li v-for="req in content.requirements" :key="req">{{ req }}</li>
         </ul>
 
-        <BaseButton :href="formUrl" target="_blank" variant="primary">
-          Compila il modulo di iscrizione
+        <BaseButton :href="content.formUrl" target="_blank" variant="primary">
+          {{ content.cta }}
         </BaseButton>
       </div>
     </div>
@@ -23,13 +19,7 @@ j<template>
 
 <script setup>
 import BaseButton from '../ui/BaseButton.vue'
-
-defineProps({
-  formUrl: {
-    type: String,
-    required: true,
-  },
-})
+import { iscrizione as content } from '../../content.js'
 </script>
 
 <style scoped>

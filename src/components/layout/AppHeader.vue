@@ -9,7 +9,7 @@
         class="header__hamburger"
         :class="{ 'is-open': isMenuOpen }"
         @click="isMenuOpen = !isMenuOpen"
-        aria-label="Apri menu"
+        :aria-label="content.hamburgerLabel"
       >
         <span></span>
         <span></span>
@@ -18,7 +18,7 @@
 
       <nav class="header__nav" :class="{ 'is-open': isMenuOpen }">
         <a
-          v-for="link in navLinks"
+          v-for="link in content.nav"
           :key="link.href"
           href="javascript:void(0)"
           class="header__nav-link"
@@ -33,20 +33,10 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { header as content } from '../../content.js'
 
 const isScrolled = ref(false)
 const isMenuOpen = ref(false)
-
-const navLinks = [
-  { href: '#descrizione', label: 'Descrizione' },
-  { href: '#programma', label: 'Programma' },
-  { href: '#gironi', label: 'Gironi' },
-  { href: '#regolamento', label: 'Regolamento' },
-  { href: '#iscrizione', label: 'Iscrizione' },
-  { href: '#galleria', label: 'Galleria' },
-  { href: '#faq', label: 'FAQ' },
-  { href: '#contatti', label: 'Contatti' },
-]
 
 function scrollTo(href) {
   const id = href.replace('#', '')

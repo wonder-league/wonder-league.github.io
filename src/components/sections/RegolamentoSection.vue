@@ -1,10 +1,10 @@
 <template>
   <section id="regolamento" class="section">
     <div class="container regolamento__inner">
-      <h2 class="section__title">Regolamento</h2>
-      <p class="regolamento__desc">Scarica il regolamento ufficiale del torneo in formato PDF.</p>
+      <h2 class="section__title">{{ content.title }}</h2>
+      <p class="regolamento__desc">{{ content.text }}</p>
       <BaseButton href="/regolamento.pdf" target="_blank" variant="primary">
-        Scarica il regolamento
+        {{ content.cta }}
       </BaseButton>
     </div>
   </section>
@@ -12,6 +12,7 @@
 
 <script setup>
 import BaseButton from '../ui/BaseButton.vue'
+import { regolamento as content } from '../../content.js'
 </script>
 
 <style scoped>

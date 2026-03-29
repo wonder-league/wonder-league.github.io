@@ -1,28 +1,14 @@
 <template>
   <section id="contatti" class="section section--alt">
     <div class="container">
-      <h2 class="section__title">Contatti</h2>
+      <h2 class="section__title">{{ content.title }}</h2>
 
       <div class="grid-3">
-        <BaseCard elevated>
+        <BaseCard v-for="card in content.cards" :key="card.title" elevated>
           <div class="contact-card">
-            <span class="contact-card__icon">&#128222;</span>
-            <h3>Telefono</h3>
-            <a href="tel:+393206304183">+39 320 630 4183</a>
-          </div>
-        </BaseCard>
-        <BaseCard elevated>
-          <div class="contact-card">
-            <span class="contact-card__icon">&#9993;</span>
-            <h3>Email</h3>
-            <a href="mailto:wonderleague2024@gmail.com">wonderleague2024@gmail.com</a>
-          </div>
-        </BaseCard>
-        <BaseCard elevated>
-          <div class="contact-card">
-            <span class="contact-card__icon">&#128247;</span>
-            <h3>Instagram</h3>
-            <a href="https://instagram.com/_wonderleague" target="_blank" rel="noopener">@_wonderleague</a>
+            <span class="contact-card__icon">{{ card.icon }}</span>
+            <h3>{{ card.title }}</h3>
+            <a :href="card.href" :target="card.target" :rel="card.rel">{{ card.value }}</a>
           </div>
         </BaseCard>
       </div>
@@ -32,6 +18,7 @@
 
 <script setup>
 import BaseCard from '../ui/BaseCard.vue'
+import { contatti as content } from '../../content.js'
 </script>
 
 <style scoped>

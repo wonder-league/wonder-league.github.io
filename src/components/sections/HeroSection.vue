@@ -2,10 +2,10 @@
   <section class="hero">
     <div class="hero__content">
       <img src="/logo/logo.png" alt="Wonder League" class="hero__logo" />
-      <p class="hero__subtitle">Torneo di calcio a 5 femminile &middot; Senigallia &middot; 21&ndash;25 Luglio 2026</p>
+      <p class="hero__subtitle">{{ content.subtitle }}</p>
       <div class="hero__ctas">
-        <BaseButton variant="primary" @click="scrollTo('iscrizione')">Iscriviti</BaseButton>
-        <BaseButton variant="secondary" @click="scrollTo('descrizione')">Scopri di pi&ugrave;</BaseButton>
+        <BaseButton variant="primary" @click="scrollTo('iscrizione')">{{ content.ctaIscrizione }}</BaseButton>
+        <BaseButton variant="secondary" @click="scrollTo('descrizione')">{{ content.ctaScopri }}</BaseButton>
       </div>
     </div>
   </section>
@@ -13,6 +13,7 @@
 
 <script setup>
 import BaseButton from '../ui/BaseButton.vue'
+import { hero as content } from '../../content.js'
 
 function scrollTo(id) {
   const el = document.getElementById(id)

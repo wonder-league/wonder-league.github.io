@@ -1,7 +1,7 @@
 <template>
   <section id="faq" class="section">
     <div class="container">
-      <h2 class="section__title">Domande Frequenti</h2>
+      <h2 class="section__title">{{ content.title }}</h2>
 
       <div class="faq-list">
         <details v-for="(item, i) in faqs" :key="i" class="faq-item">
@@ -14,6 +14,8 @@
 </template>
 
 <script setup>
+import { faq as content } from '../../content.js'
+
 defineProps({
   faqs: {
     type: Array,

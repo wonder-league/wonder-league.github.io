@@ -1,10 +1,14 @@
 <template>
   <footer class="footer">
     <div class="container footer__inner">
-      <p class="footer__copy">&copy; 2026 Wonder League. Tutti i diritti riservati.</p>
+      <p class="footer__copy">{{ content.copyright }}</p>
     </div>
   </footer>
 </template>
+
+<script setup>
+import { footer as content } from '../../content.js'
+</script>
 
 <style scoped>
 .footer {
