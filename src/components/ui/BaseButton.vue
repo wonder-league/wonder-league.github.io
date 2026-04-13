@@ -30,42 +30,42 @@ defineProps({
   cursor: pointer;
   border: 2px solid transparent;
   text-decoration: none;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
   text-align: center;
 }
 
 .btn--primary {
-  background-color: var(--color-primary);
+  background: var(--gradient-primary);
   color: var(--color-text-on-primary);
   border-color: var(--color-primary);
 }
 
 .btn--primary:hover {
-  background-color: transparent;
+  background: transparent;
   color: var(--color-primary);
   text-decoration: none;
 }
 
 .btn--secondary {
-  background-color: transparent;
+  background: transparent;
   color: var(--color-primary);
   border-color: var(--color-primary);
 }
 
 .btn--secondary:hover {
-  background-color: var(--color-primary);
+  background: var(--gradient-primary);
   color: var(--color-text-on-primary);
   text-decoration: none;
 }
 
 .btn--outline-white {
   background-color: transparent;
-  color: #fff;
-  border-color: #fff;
+  color: var(--color-text-on-primary);
+  border-color: var(--color-text-on-primary);
 }
 
 .btn--outline-white:hover {
-  background-color: #fff;
+  background-color: var(--color-text-on-primary);
   color: var(--color-primary);
   text-decoration: none;
 }

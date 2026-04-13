@@ -20,7 +20,7 @@ defineProps({
 
 <style scoped>
 .card {
-  background-color: var(--color-bg-surface);
+  background: var(--gradient-surface);
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
   overflow: hidden;
@@ -32,7 +32,7 @@ defineProps({
 
 .card__header {
   padding: var(--space-sm) var(--space-md);
-  background-color: var(--color-accent);
+  background: var(--gradient-bg-alt);
   border-bottom: 1px solid var(--color-border);
 }
 

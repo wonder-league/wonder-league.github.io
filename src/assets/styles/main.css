@@ -10,6 +10,7 @@
   --color-text: #ffffff;
   --color-text-muted: rgba(255, 255, 255, 0.55);
   --color-text-on-primary: #ffffff;
+  --color-text-on-hero: #2a2a2a;
   --color-border: rgba(220, 137, 161, 0.2);
 
   /* Typography */
@@ -36,6 +37,14 @@
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.6);
+
+  /* Gradients */
+  --gradient-bg:           linear-gradient(160deg, #0d0d0d 0%, #150c11 100%);
+  --gradient-bg-alt:       linear-gradient(160deg, #171717 0%, #1e1420 100%);
+  --gradient-bg-secondary: linear-gradient(135deg, #130a0f 0%, #231424 100%);
+  --gradient-primary:      linear-gradient(135deg, #e8a0b8 0%, #c07888 100%);
+  --gradient-hero:         linear-gradient(135deg, #fcf8fa 0%, #dcd0d8 100%);
+  --gradient-surface:      linear-gradient(145deg, #1f1f1f 0%, #261b22 100%);
 }
 
 /* Reset */
@@ -108,5 +117,5 @@ th {
 }
 
 tr:hover td {
-  background-color: rgba(220, 137, 161, 0.07);
+  background-color: color-mix(in srgb, var(--color-primary) 7%, transparent);
 }

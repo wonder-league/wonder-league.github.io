@@ -41,6 +41,8 @@ const props = defineProps({
 
 const emit = defineEmits(['change'])
 
+const SWIPE_THRESHOLD_PX = 50
+
 const currentIndex = ref(0)
 let timer = null
 let pointerStartX = 0
@@ -72,7 +74,7 @@ function onPointerDown(e) {
 
 function onPointerUp(e) {
   const delta = e.clientX - pointerStartX
-  if (Math.abs(delta) > 50) {
+  if (Math.abs(delta) > SWIPE_THRESHOLD_PX) {
     delta < 0 ? next() : prev()
   }
 }
@@ -85,6 +87,10 @@ defineExpose({ goTo, next, prev })
 
 <style scoped>
 .carousel {
+  --btn-overlay: rgba(0, 0, 0, 0.4);
+  --btn-overlay-hover: rgba(0, 0, 0, 0.65);
+  --dot-size: 10px;
+  --dots-gap: 6px;
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-md);
@@ -113,8 +119,8 @@ defineExpose({ goTo, next, prev })
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.4);
-  color: #fff;
+  background-color: var(--btn-overlay);
+  color: var(--color-text-on-primary);
   border: none;
   font-size: 2rem;
   line-height: 1;
@@ -126,7 +132,7 @@ defineExpose({ goTo, next, prev })
 }
 
 .carousel__btn:hover {
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: var(--btn-overlay-hover);
 }
 
 .carousel__btn--prev { left: var(--space-xs); }
@@ -139,12 +145,12 @@ defineExpose({ goTo, next, prev })
   right: 0;
   display: flex;
   justify-content: center;
-  gap: 6px;
+  gap: var(--dots-gap);
 }
 
 .carousel__dot {
-  width: 10px;
-  height: 10px;
+  width: var(--dot-size);
+  height: var(--dot-size);
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.5);
   border: none;
@@ -154,6 +160,6 @@ defineExpose({ goTo, next, prev })
 }
 
 .carousel__dot.is-active {
-  background-color: #fff;
+  background-color: var(--color-text-on-primary);
 }
 </style>

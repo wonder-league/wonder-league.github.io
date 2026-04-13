@@ -35,8 +35,13 @@ defineProps({
 <style scoped>
 .timeline {
   --line-x: 10px;
+  --timeline-indent: 32px;
+  --dot-size: 12px;
+  --dot-top: 14px;
+  --event-padding: 4px;
+  --time-min-width: 50px;
   position: relative;
-  padding-left: 32px;
+  padding-left: var(--timeline-indent);
 }
 
 /* Linea verticale */
@@ -59,10 +64,10 @@ defineProps({
 .timeline__item::before {
   content: '';
   position: absolute;
-  left: calc(-22px + var(--line-x) - 6px);
-  top: 14px;
-  width: 12px;
-  height: 12px;
+  left: calc(-1 * (var(--timeline-indent) - var(--line-x)) - var(--dot-size) / 2);
+  top: var(--dot-top);
+  width: var(--dot-size);
+  height: var(--dot-size);
   border-radius: 50%;
   background-color: var(--color-primary);
   border: 2px solid var(--color-bg-surface);
@@ -100,7 +105,7 @@ defineProps({
 .timeline__event {
   display: flex;
   gap: var(--space-sm);
-  padding-block: 4px;
+  padding-block: var(--event-padding);
 }
 
 .timeline__event + .timeline__event {
@@ -110,7 +115,7 @@ defineProps({
 .timeline__time {
   font-weight: bold;
   color: var(--color-primary);
-  min-width: 50px;
+  min-width: var(--time-min-width);
   flex-shrink: 0;
   font-size: 0.875rem;
 }

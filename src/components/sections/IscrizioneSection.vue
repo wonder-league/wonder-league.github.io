@@ -1,4 +1,4 @@
-j<template>
+<template>
   <section id="iscrizione" class="section section--secondary">
     <div class="container text-center">
       <h2 class="section__title">{{ content.title }}</h2>

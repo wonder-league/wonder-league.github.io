@@ -1,7 +1,7 @@
 <template>
-  <header class="header" :class="{ 'header--scrolled': isScrolled }">
+  <header ref="headerRef" class="header" :class="{ 'header--scrolled': isScrolled }">
     <div class="header__inner">
-      <a href="#" class="header__logo">
+      <a href="#" class="header__logo" @click.prevent="onLogoClick">
         <img src="/logo/logo-white.png" alt="Wonder League" />
       </a>
 
@@ -20,9 +20,9 @@
         <a
           v-for="link in content.nav"
           :key="link.href"
-          href="javascript:void(0)"
+          :href="link.href"
           class="header__nav-link"
-          @click="scrollTo(link.href)"
+          @click.prevent="onNavLinkClick(link.href)"
         >
           {{ link.label }}
         </a>
@@ -34,22 +34,26 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { header as content } from '../../content.js'
+import { scrollToTop, scrollToSection } from '../../utils/scroll.js'
 
+const SCROLL_THRESHOLD_PX = 20
+
+const headerRef = ref(null)
 const isScrolled = ref(false)
 const isMenuOpen = ref(false)
 
-function scrollTo(href) {
-  const id = href.replace('#', '')
-  const el = document.getElementById(id)
-  if (el) {
-    const top = el.getBoundingClientRect().top + window.scrollY - 80
-    window.scrollTo({ top, behavior: 'smooth' })
-  }
+function onLogoClick() {
+  scrollToTop()
+  isMenuOpen.value = false
+}
+
+function onNavLinkClick(href) {
+  scrollToSection(href.replace('#', ''), headerRef.value?.offsetHeight ?? 0)
   isMenuOpen.value = false
 }
 
 function onScroll() {
-  isScrolled.value = window.scrollY > 20
+  isScrolled.value = window.scrollY > SCROLL_THRESHOLD_PX
 }
 
 onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))
@@ -64,7 +68,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   right: 0;
   z-index: 100;
   height: var(--header-height);
-  background-color: var(--color-accent);
+  background: var(--gradient-bg-alt);
   box-shadow: var(--shadow-md);
 }
 
@@ -90,8 +94,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   flex-shrink: 0;
 }
 
-
-
 .header__logo img {
   height: 40px;
   width: auto;
@@ -114,15 +116,18 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 }
 
 .header__nav-link:hover {
-  background-color: var(--color-primary);
+  background: var(--gradient-primary);
   color: var(--color-text-on-primary);
   text-decoration: none;
 }
 
 .header__hamburger {
+  --bar-width: 24px;
+  --bar-height: 2px;
+  --bar-gap: 5px;
   display: none;
   flex-direction: column;
-  gap: 5px;
+  gap: var(--bar-gap);
   background: none;
   border: none;
   cursor: pointer;
@@ -131,24 +136,24 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 .header__hamburger span {
   display: block;
-  width: 24px;
-  height: 2px;
+  width: var(--bar-width);
+  height: var(--bar-height);
   background-color: var(--color-text);
   border-radius: 2px;
   transition: transform 0.2s, opacity 0.2s;
 }
 
 .header__hamburger.is-open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  transform: translateY(calc(var(--bar-gap) + var(--bar-height))) rotate(45deg);
 }
 .header__hamburger.is-open span:nth-child(2) {
   opacity: 0;
 }
 .header__hamburger.is-open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(calc(-1 * (var(--bar-gap) + var(--bar-height)))) rotate(-45deg);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .header__hamburger {
     display: flex;
   }
@@ -160,7 +165,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     left: 0;
     right: 0;
     flex-direction: column;
-    background-color: var(--color-accent);
+    background: var(--gradient-bg-alt);
     padding: var(--space-sm);
     box-shadow: var(--shadow-md);
     gap: 0;

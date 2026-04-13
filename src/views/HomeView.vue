@@ -3,7 +3,6 @@
     <HeroSection />
     <DescrizioneSection />
     <ProgrammaSection :days="programmaContent.days" />
-    <!-- <GironiSection :groups="groups" /> -->
     <RegolamentoSection />
     <IscrizioneSection />
     <GalleriaSection />

@@ -4,8 +4,8 @@
       <img src="/logo/logo.png" alt="Wonder League" class="hero__logo" />
       <p class="hero__subtitle">{{ content.subtitle }}</p>
       <div class="hero__ctas">
-        <BaseButton variant="primary" @click="scrollTo('iscrizione')">{{ content.ctaIscrizione }}</BaseButton>
-        <BaseButton variant="secondary" @click="scrollTo('descrizione')">{{ content.ctaScopri }}</BaseButton>
+        <BaseButton variant="primary" @click="scrollToSection('iscrizione')">{{ content.ctaIscrizione }}</BaseButton>
+        <BaseButton variant="secondary" @click="scrollToSection('descrizione')">{{ content.ctaScopri }}</BaseButton>
       </div>
     </div>
   </section>
@@ -14,14 +14,7 @@
 <script setup>
 import BaseButton from '../ui/BaseButton.vue'
 import { hero as content } from '../../content.js'
-
-function scrollTo(id) {
-  const el = document.getElementById(id)
-  if (el) {
-    const top = el.getBoundingClientRect().top + window.scrollY - 80
-    window.scrollTo({ top, behavior: 'smooth' })
-  }
-}
+import { scrollToSection } from '../../utils/scroll.js'
 </script>
 
 <style scoped>
@@ -33,11 +26,10 @@ function scrollTo(id) {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #e8e8e8;
-  color: #2a2a2a;
+  background: var(--gradient-hero);
+  color: var(--color-text-on-hero);
   padding-top: var(--header-height);
 }
-
 
 .hero__content {
   position: relative;

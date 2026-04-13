@@ -7,20 +7,21 @@
 
 .section {
   padding-block: var(--space-xl);
-}
-
-.section--alt {
-  background-color: var(--color-bg-alt);
-}
-
-.section--secondary {
-  background-color: #1a1014;
+  background: var(--gradient-bg);
   border-top: 2px solid var(--color-primary);
   border-bottom: 2px solid var(--color-primary);
 }
 
+.section--alt {
+  background: var(--gradient-bg-alt);
+}
+
+.section--secondary {
+  background: var(--gradient-bg-secondary);
+}
+
 .section--primary {
-  background-color: var(--color-primary);
+  background: var(--gradient-primary);
   color: var(--color-text-on-primary);
 }
 

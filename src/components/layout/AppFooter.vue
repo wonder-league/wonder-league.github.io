@@ -12,7 +12,7 @@ import { footer as content } from '../../content.js'
 
 <style scoped>
 .footer {
-  background-color: var(--color-primary);
+  background: var(--gradient-primary);
   color: var(--color-text-on-primary);
   padding-block: var(--space-xs);
 }
@@ -30,18 +30,4 @@ import { footer as content } from '../../content.js'
   font-size: 0.875rem;
 }
 
-.footer__links {
-  display: flex;
-  gap: var(--space-md);
-}
-
-.footer__link {
-  color: var(--color-text-on-primary);
-  text-decoration: none;
-  font-size: 0.875rem;
-}
-
-.footer__link:hover {
-  text-decoration: underline;
-}
 </style>

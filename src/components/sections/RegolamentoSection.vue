@@ -22,6 +22,6 @@ import { regolamento as content } from '../../content.js'
 
 .regolamento__desc {
   margin-bottom: var(--space-md);
-  color: var(--color-text-muted, #666);
+  color: var(--color-text-muted);
 }
 </style>
