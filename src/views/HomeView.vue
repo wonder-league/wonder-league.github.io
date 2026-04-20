@@ -14,7 +14,7 @@
 <script setup>
 import HeroSection from '../components/sections/HeroSection.vue'
 import DescrizioneSection from '../components/sections/DescrizioneSection.vue'
-import ProgrammaSection from '../components/sections/ProgrammaSection.vue'
+// import ProgrammaSection from '../components/sections/ProgrammaSection.vue'
 import RegolamentoSection from '../components/sections/RegolamentoSection.vue'
 import IscrizioneSection from '../components/sections/IscrizioneSection.vue'
 import GalleriaSection from '../components/sections/GalleriaSection.vue'

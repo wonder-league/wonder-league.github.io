@@ -25,7 +25,7 @@ export const footer = {
 
 // ─── Hero ────────────────────────────────────────────────────
 export const hero = {
-  subtitle: 'Torneo di calcio a 5 femminile · Senigallia · TBD',
+  subtitle: 'Torneo di calcio a 5 femminile · Senigallia · 28-29-30 luglio 2026',
   ctaIscrizione: 'Iscriviti',
   ctaScopri: 'Scopri di più',
 }
@@ -33,10 +33,10 @@ export const hero = {
 // ─── Descrizione ─────────────────────────────────────────────
 export const descrizione = {
   title: 'Il Torneo',
-  text: "Wonder League è un torneo di calcio a 5 femminile che si svolge a Senigallia, presso il Seminario. L'evento nasce con l'obiettivo di riunire squadre da tutta Italia in uno spirito di divertimento, amicizia e fair play. Cinque giorni di partite, emozioni e tanto calcio giocato da donne appassionate.",
+  text: "Wonder League è un torneo di calcio a 5 femminile che si svolge a Senigallia, presso il Seminario. L'evento nasce con l'obiettivo di riunire squadre da tutta Italia in uno spirito di divertimento, amicizia e fair play. Tre giorni di partite, emozioni e tanto calcio giocato da donne appassionate.",
   features: [
-    { icon: '⚽', title: 'Squadre',   text: 'Fino a 6 squadre partecipanti suddivise in gironi' },
-    { icon: '📅', title: '5 Giorni',  text: 'T.B.D. a Senigallia (AN)' },
+    { icon: '⚽', title: 'Squadre',   text: 'Fino a 8 squadre partecipanti suddivise in gironi' },
+    { icon: '📅', title: '3 Giorni',  text: '28-29-30 luglio, a Senigallia (AN)' },
     { icon: '🏆', title: 'Fair Play', text: 'Spirito sportivo e amicizia al centro di ogni partita' },
   ],
 }
@@ -98,11 +98,11 @@ export const iscrizione = {
   text: 'Iscrivi la tua squadra compilando il modulo online. Le iscrizioni sono aperte!',
   requirements: [
     'Da 5 a 10 giocatrici per rosa',
-    'Almeno una giocatrice tesserata FIGC o CSI',
+    'Massimo una giocatrice tesserata (o ex tesserata) FIGC o CSI',
     'Allenatore/accompagnatore obbligatorio',
   ],
   cta: 'Compila il modulo di iscrizione',
-  formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSepR-LRKB9oElUL1-oZiRKXaqZMEpPTRRearLKY9CtfOttjFw/viewform?usp=sf_link',
+  formUrl: 'https://form.typeform.com/to/ghQLN1EQ',
 }
 
 // ─── Galleria ────────────────────────────────────────────────
@@ -129,7 +129,7 @@ export const faq = {
   items: [
     {
       question: "Come si effettua l'iscrizione?",
-      answer: 'L\'iscrizione avviene compilando il modulo Google disponibile nella sezione "Iscrizione" di questo sito. Una volta inviato il modulo, riceverete una email di conferma con tutte le informazioni.',
+      answer: 'L\'iscrizione avviene compilando il form disponibile nella sezione "Iscrizione" di questo sito. Una volta inviato il modulo, riceverete una email di conferma con tutte le informazioni.',
     },
     {
       question: 'Quante giocatrici può avere una squadra?',
@@ -137,7 +137,7 @@ export const faq = {
     },
     {
       question: 'Dove si svolge il torneo?',
-      answer: 'Il torneo si svolge presso il Seminario di Senigallia, in provincia di Ancona (AN), dal 21 al 25 Luglio 2026.',
+      answer: 'Il torneo si svolge presso il Seminario di Senigallia, in provincia di Ancona (AN), dal 28 al 30 Luglio 2026.',
     },
     {
       question: 'Cosa succede in caso di pioggia?',
